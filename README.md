@@ -6,7 +6,7 @@
   <b> Real world photographs being translated into simulated Monet paintings by TTC. </b>
 </p>
 
-This repository is the official implementation of "Trust the Critics" (TTC), the mutilpurpose transport algorithm described in *A new method for determining Wasserstein 1 optimal transport maps from Kantorovich potentials, with deep learning applications* (link to ArXiV coming soon). It is written in PyTorch.
+This repository is the official implementation of "Trust the Critics" (TTC), the mutilpurpose transport algorithm described in [*A new method for determining Wasserstein 1 optimal transport maps from Kantorovich potentials, with deep learning applications*](https://arxiv.org/abs/2211.00820). It is written in PyTorch.
 
 Given two datasets each representing a probability distribution, i.e. a "source" μ and a "target" ν, TTC uses critic networks like those from [WGAN-GP](https://github.com/igul222/improved_wgan_training) to learn a transport map from μ to ν. Roughly speaking, the idea is to start at samples from the source distribution μ and iteratively take gradient descent steps on critic networks, with carefully selected step sizes, until the target distribution ν has been reached. Importantly, training the critic networks does not require prior knowledge of pairings between samples from μ and ν, so TTC is trained through unsupervised learning. The only strict requirement is that the two distributions must inhabit the same dimension, so TTC is a highly versatile algorithm. For a precise description of how TTC works, refer to Algorithm 1 in the paper.
 
